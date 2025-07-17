@@ -1,0 +1,358 @@
+/* [project]/src/app/futuristic.css [app-client] (css) */
+:root {
+  --neon-blue: #00e6ff;
+  --neon-purple: #c400ff;
+  --neon-green: #00ff84;
+  --neon-pink: #ff0080;
+  --neon-orange: #f60;
+  --dark-bg: #0a0a0a;
+  --dark-card: #111;
+  --dark-border: #1a1a1a;
+  --futuristic-font: "Orbitron", monospace;
+  --body-font: "Rajdhani", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  color: #e0e0e0 !important;
+  font-family: var(--body-font) !important;
+  background: radial-gradient(#0f0f23 0%, #0a0a0a 100%) !important;
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 15px var(--neon-blue);
+  }
+
+  50% {
+    box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue);
+  }
+}
+
+@keyframes neonGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px var(--neon-green), 0 0 10px var(--neon-green);
+  }
+
+  50% {
+    text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green), 0 0 30px var(--neon-green);
+  }
+}
+
+@keyframes hologramFlicker {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .8;
+  }
+}
+
+@keyframes dataStream {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes circuitPulse {
+  0%, 100% {
+    background: linear-gradient(90deg, transparent 0%, var(--neon-blue) 50%, transparent 100%);
+  }
+
+  50% {
+    background: linear-gradient(90deg, transparent 0%, var(--neon-purple) 50%, transparent 100%);
+  }
+}
+
+.futuristic-card {
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  background: #111111e6 !important;
+  border: 1px solid #00e6ff4d !important;
+  border-radius: 12px !important;
+}
+
+.futuristic-card:before {
+  content: "";
+  background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+  width: 100%;
+  height: 2px;
+  animation: 3s infinite circuitPulse;
+  position: absolute;
+  top: 0;
+  left: -100%;
+}
+
+.neon-button {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--neon-blue) !important;
+  color: var(--neon-blue) !important;
+  font-family: var(--futuristic-font) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  background: linear-gradient(135deg, #00e6ff1a, #c400ff1a) !important;
+  font-weight: 600 !important;
+  transition: all .3s !important;
+}
+
+.neon-button:before {
+  content: "";
+  background: linear-gradient(90deg, #0000, #00e6ff33, #0000);
+  width: 100%;
+  height: 100%;
+  transition: left .5s;
+  position: absolute;
+  top: 0;
+  left: -100%;
+}
+
+.neon-button:hover:before {
+  left: 100%;
+}
+
+.neon-button:hover {
+  background: linear-gradient(135deg, #00e6ff33, #c400ff33) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 0 20px #00e6ff80 !important;
+}
+
+.neon-button:active {
+  transform: translateY(0) !important;
+}
+
+.neon-button.active {
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple)) !important;
+  color: #000 !important;
+  box-shadow: 0 0 30px #00e6ffcc !important;
+}
+
+.neon-text {
+  animation: 2s ease-in-out infinite alternate neonGlow;
+  font-family: var(--futuristic-font) !important;
+  color: var(--neon-blue) !important;
+  text-shadow: 0 0 10px var(--neon-blue) !important;
+}
+
+.hologram-effect {
+  background: linear-gradient(45deg, #0000 30%, #00e6ff1a 50%, #0000 70%);
+  animation: .1s infinite alternate hologramFlicker;
+}
+
+.status-indicator {
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  position: relative;
+}
+
+.status-indicator:after {
+  content: "";
+  border-radius: 50%;
+  animation: 2s infinite neonPulse;
+  position: absolute;
+  inset: -2px;
+}
+
+.status-online {
+  background: var(--neon-green);
+}
+
+.status-offline {
+  background: var(--neon-orange);
+}
+
+.status-error {
+  background: var(--neon-pink);
+}
+
+.chat-bubble-user {
+  background: linear-gradient(135deg, #00e6ff33, #c400ff33) !important;
+  border: 1px solid #00e6ff80 !important;
+  border-radius: 18px 18px 4px !important;
+}
+
+.chat-bubble-ai {
+  background: linear-gradient(135deg, #00ff841a, #ff66001a) !important;
+  border: 1px solid #00ff844d !important;
+  border-radius: 18px 18px 18px 4px !important;
+}
+
+.voice-visualizer {
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  display: flex;
+}
+
+.voice-bar {
+  background: var(--neon-green);
+  border-radius: 2px;
+  width: 3px;
+  animation: 1s infinite dataStream;
+}
+
+.voice-bar:first-child {
+  height: 10px;
+  animation-delay: 0s;
+}
+
+.voice-bar:nth-child(2) {
+  height: 20px;
+  animation-delay: .1s;
+}
+
+.voice-bar:nth-child(3) {
+  height: 15px;
+  animation-delay: .2s;
+}
+
+.voice-bar:nth-child(4) {
+  height: 25px;
+  animation-delay: .3s;
+}
+
+.voice-bar:nth-child(5) {
+  height: 12px;
+  animation-delay: .4s;
+}
+
+.loading-dots {
+  gap: 4px;
+  display: inline-flex;
+}
+
+.loading-dot {
+  background: var(--neon-blue);
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+  animation: 1.4s ease-in-out infinite neonPulse;
+}
+
+.loading-dot:first-child {
+  animation-delay: -.32s;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: -.16s;
+}
+
+.loading-dot:nth-child(3) {
+  animation-delay: 0s;
+}
+
+.modal-backdrop {
+  backdrop-filter: blur(5px);
+  background: #000c !important;
+}
+
+.modal-content {
+  background: var(--dark-card) !important;
+  border: 2px solid var(--neon-blue) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 0 50px #00e6ff4d !important;
+}
+
+.futuristic-input {
+  color: #e0e0e0 !important;
+  font-family: var(--body-font) !important;
+  background: #111c !important;
+  border: 1px solid #00e6ff4d !important;
+  border-radius: 8px !important;
+  transition: all .3s !important;
+}
+
+.futuristic-input:focus {
+  border-color: var(--neon-blue) !important;
+  outline: none !important;
+  box-shadow: 0 0 20px #00e6ff4d !important;
+}
+
+.futuristic-textarea {
+  color: #e0e0e0 !important;
+  font-family: var(--body-font) !important;
+  resize: vertical !important;
+  background: #111c !important;
+  border: 1px solid #00e6ff4d !important;
+  border-radius: 8px !important;
+  transition: all .3s !important;
+}
+
+.futuristic-textarea:focus {
+  border-color: var(--neon-blue) !important;
+  outline: none !important;
+  box-shadow: 0 0 20px #00e6ff4d !important;
+}
+
+.command-terminal {
+  border: 1px solid var(--neon-green) !important;
+  color: var(--neon-green) !important;
+  background: #000000e6 !important;
+  border-radius: 8px !important;
+  font-family: Courier New, monospace !important;
+}
+
+.system-grid {
+  background: #00e6ff1a;
+  gap: 1px;
+  display: grid;
+}
+
+.grid-cell {
+  background: var(--dark-bg);
+  aspect-ratio: 1;
+  border: 1px solid #00e6ff33;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--neon-blue), var(--neon-purple));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--neon-purple), var(--neon-blue));
+}
+
+@media (width <= 768px) {
+  .futuristic-card {
+    margin: 8px;
+  }
+
+  .neon-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+/*# sourceMappingURL=src_app_futuristic_css_f9ee138c._.single.css.map*/

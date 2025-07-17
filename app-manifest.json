@@ -1,0 +1,41 @@
+{
+  "name": "PAGE - Personal AI Guidance Engine",
+  "version": "1.0.0",
+  "description": "Advanced AI Assistant with Full Computer Control and Google Search",
+  "main": "start-page.bat",
+  "scripts": {
+    "start": "npm run dev",
+    "install": "npm install",
+    "build": "npm run build"
+  },
+  "windows": {
+    "icon": "icon.ico",
+    "requestedExecutionLevel": "requireAdministrator",
+    "compatibility": [
+      "Windows 11"
+    ],
+    "features": [
+      "Real-time Google Search Integration",
+      "Complete Windows 11 System Control",
+      "Voice Command Processing",
+      "Camera and Microphone Access",
+      "File System Management",
+      "Process and Application Control",
+      "Network Diagnostics and Control",
+      "Hardware Monitoring",
+      "Code Generation and Development",
+      "Document Analysis and Processing"
+    ]
+  },
+  "permissions": [
+    "internetClient",
+    "documentsLibrary",
+    "picturesLibrary",
+    "videosLibrary",
+    "musicLibrary",
+    "webcam",
+    "microphone",
+    "allJoyn",
+    "privateNetworkClientServer"
+  ]
+}
